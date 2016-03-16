@@ -1,48 +1,53 @@
 //Wednesday Lab Exercise
 
-// //User Name
-// var userName = prompt('Please tell me your name!');
-// console.log('The user\'s name is ' + userName);
-//
-// //Welcome Message
-// alert('Welcome, ' + userName + ' Let\'s play a game. I\'m going to ask you some questions about me. Please click "ok" and then we\'ll get started!');
-//
-// //First Question - Yes or No - will repeat if wrong input
-//
-// var keepAskingQ1 = true;
-//
-// while (keepAskingQ1){
-// var userResponse1 = prompt('Am I a passionate cook who loves creating tasty treats for friends and family? Please answer Y or N.');
-// console.log('userResponse1: ' + userResponse1);
-// if (userResponse1.toLowerCase() === 'n' || userResponse1.toUpperCase() === 'NO') {
-//   alert('You are correct. Cooking is not one of my many fantastic talents. Don\'t worry - we\'ll order in!');
-//   keepAskingQ1 = false;
-// } else if (userResponse1.toUpperCase() === 'Y' || userResponse1.toLowerCase() === 'no') {
-//   alert('Sorry, domestic Goddess I am not. No worries, we\'ll order a delicious Pizza if you come to my house.');
-//   keepAskingQ1 = false;
-// } else {
-//   alert('Please enter either "y" or "n"!');
-//   }
-// }
-//
-//
-// //Second Question - Yes or No - will repeat if wrong input
-// var keepAskingQ2 = true;
-//
-// while (keepAskingQ2){
-// var userResponse2 = prompt('Am I a punctual person? Please answer Y or N.');
-// console.log('userResponse2: ' + userResponse2);
-//
-// if (userResponse2.toLowerCase() === 'n' || userResponse2.toLowerCase() === 'no') {
-//   alert('Sorry, you are very wrong on this one. I am pathologically punctual - and usually early.');
-//   keepAskingQ2 = false;
-// } else if(userResponse2.toUpperCase() === 'Y' || userResponse2.toUpperCase() === 'YES') {
-//   alert('You are right! It must be my germanic roots. I\'m usually at least 10 minutes early.');
-//   keepAskingQ2 = false;
-// } else {
-//   alert('Please enter either "y" or "n"!');
-// }
-// }
+//Variable for Correct Answers Tally
+
+var correctAnswers = 0;
+
+//User Name
+var userName = prompt('Please tell me your name!');
+console.log('The user\'s name is ' + userName);
+
+//Welcome Message
+alert('Welcome, ' + userName + ' Let\'s play a game. I\'m going to ask you some questions about me. Please click "ok" and then we\'ll get started!');
+
+//First Question - Yes or No - will repeat if wrong input
+var keepAskingQ1 = true;
+
+while (keepAskingQ1){
+var userResponse1 = prompt('Am I a passionate cook who loves creating tasty treats for friends and family? Please answer Y or N.');
+console.log('userResponse1: ' + userResponse1);
+if (userResponse1.toLowerCase() === 'n' || userResponse1.toUpperCase() === 'NO') {
+  alert('You are correct. Cooking is not one of my many fantastic talents. Don\'t worry - we\'ll order in!');
+  correctAnswers += 1;
+  keepAskingQ1 = false;
+} else if (userResponse1.toUpperCase() === 'Y' || userResponse1.toLowerCase() === 'no') {
+  alert('Sorry, domestic Goddess I am not. No worries, we\'ll order a delicious Pizza if you come to my house.');
+  keepAskingQ1 = false;
+} else {
+  alert('Please enter either "y" or "n"!');
+  }
+}
+
+
+//Second Question - Yes or No - will repeat if wrong input
+var keepAskingQ2 = true;
+
+while (keepAskingQ2){
+var userResponse2 = prompt('Am I a punctual person? Please answer Y or N.');
+console.log('userResponse2: ' + userResponse2);
+
+if (userResponse2.toLowerCase() === 'n' || userResponse2.toLowerCase() === 'no') {
+  alert('Sorry, you are very wrong on this one. I am pathologically punctual - and usually early.');
+  keepAskingQ2 = false;
+} else if(userResponse2.toUpperCase() === 'Y' || userResponse2.toUpperCase() === 'YES') {
+  alert('You are right! It must be my germanic roots. I\'m usually at least 10 minutes early.');
+  keepAskingQ2 = false;
+  correctAnswers += 1;
+} else {
+  alert('Please enter either "y" or "n"!');
+}
+}
 
 //Third Question - Switch Statement - will repeat if wrong input
 var keepAskingQ3 = true;
@@ -61,6 +66,7 @@ switch (pets) {
   case 'bunny':
     alert('That\'s right! My first pet was a black bunny rabbit named Stupsi.');
     keepAskingQ3 = false;
+    correctAnswers += 1;
     break;
   case 'dog':
     alert('Oh, I wish! But no I had to wait many years until finally being able to get a dog. My first pet was a bunny!');
@@ -75,19 +81,24 @@ switch (pets) {
 }
 }
 
-// //Question 4
-// var keepAskingQ4 = true;
-//
-// while (keepAskingQ4) {
-// var userResponse4 = prompt('How many countries have I live in? Take a guess!');
-// console.log('userResponse4 ' + userResponse4);
-//
-// if (parseInt(userResponse4) === 4) {
-//   alert('That\'s correct! Well done!');
-//   keepAskingQ4 = false;
-// } else if (userResponse4 < 4) {
-//   alert('Sorry ' + userResponse4 + ' is not correct. I have lived in more countries than that! Guess again!');
-// } else {
-//   alert('Sorry ' + userResponse4 + ' is not correct. I have not lived in that many countries! Guess again!');
-// }
-// }
+//Fourth Question - uses numeric input and repeats until correct answer
+var keepAskingQ4 = true;
+
+while (keepAskingQ4) {
+var userResponse4 = prompt('How many countries have I live in? Take a guess!');
+console.log('userResponse4 ' + userResponse4);
+
+if (parseInt(userResponse4) === 4) {
+  alert('That\'s correct! Well done!');
+  keepAskingQ4 = false;
+  correctAnswers += 1;
+} else if (userResponse4 < 4) {
+  alert('Sorry ' + userResponse4 + ' is not correct. I have lived in more countries than that! Guess again!');
+} else {
+  alert('Sorry ' + userResponse4 + ' is not correct. I have not lived in that many countries! Guess again!');
+}
+}
+
+// Correct Answers Tally
+
+alert('Congratulations! You have got ' + correctAnswers + ' questions right. Very well done!');
