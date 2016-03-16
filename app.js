@@ -1,53 +1,103 @@
-//Tuesday Lab Exercise
+//Wednesday Lab Exercise
 
+// Variable to tally questions later
+var correctQuestions = 0;
 
-//Question1
-var userName2 = prompt("What is your name?");
-console.log("Welcome " + userName2 + " !");
+//User Name
+var userName = prompt('Please tell me your name!');
+console.log('The user\'s name is ' + userName);
 
-//Question2
-var userAge = prompt("How old are you?");
-if (userAge < 30) {
-  console.log("Oh, you little Whippersnapper!" + userAge + " is nothing!");
-} else if (userAge <= 45) {
-  console.log(userAge + " is a great age to be!");
+//Welcome Message
+alert('Welcome, ' + userName + ' Let\'s play a game. I\'m going to ask you some questions about me. Please click "ok" and then we\'ll get started!');
+
+//First Question - Yes or No - will repeat if wrong input
+var keepAskingQ1 = true;
+
+while (keepAskingQ1){
+var userResponse1 = prompt('Am I a passionate cook who loves creating tasty treats for friends and family? Please answer Y or N.');
+console.log('userResponse1: ' + userResponse1);
+if (userResponse1.toLowerCase() === 'n' || userResponse1.toUpperCase() === 'NO') {
+  alert('You are correct. Cooking is not one of my many fantastic talents. Don\'t worry - we\'ll order in!');
+  correctQuestions += 1;
+  keepAskingQ1 = false;
+} else if (userResponse1.toUpperCase() === 'Y' || userResponse1.toLowerCase() === 'no') {
+  alert('Sorry, domestic Goddess I am not. No worries, we\'ll order a delicious Pizza if you come to my house.');
+  keepAskingQ1 = false;
 } else {
-  console.log("Wow! " + userAge + ", huh? With age comes wisdom, right? Right???");
+  alert('Please enter either "y" or "n"!');
+  }
 }
 
-//Question3
-var userOrigin = prompt("Where are you from?");
-console.log(userOrigin + " is a great place to be from!");
 
-//Question4
-var userAnimal = prompt("Do you prefer dogs or cats?");
-if (userAnimal === 'cats'){
-  console.log("Meow. So you like being treated like a slave. Nice. Enjoy your " + userAnimal + " !");
-} else if (userAnimal === 'dogs') {
-  console.log("Right on! " + userAnimal + " rule!");
+//Second Question - Yes or No - will repeat if wrong input
+var keepAskingQ2 = true;
+
+while (keepAskingQ2){
+var userResponse2 = prompt('Am I a punctual person? Please answer Y or N.');
+console.log('userResponse2: ' + userResponse2);
+
+if (userResponse2.toLowerCase() === 'n' || userResponse2.toLowerCase() === 'no') {
+  alert('Sorry, you are very wrong on this one. I am pathologically punctual - and usually early.');
+  keepAskingQ2 = false;
+} else if(userResponse2.toUpperCase() === 'Y' || userResponse2.toUpperCase() === 'YES') {
+  alert('You are right! It must be my germanic roots. I\'m usually at least 10 minutes early.');
+  correctQuestions += 1;
+  keepAskingQ2 = false;
 } else {
-  console.log("You had two choices, mate. Two!");
+  alert('Please enter either "y" or "n"!');
+}
 }
 
-//Question5
-var userDrink = prompt("Do you prefer wine or beer?");
-if(userDrink === 'beer'){
-  console.log("Great! If you like " + userDrink + " Portland is the right place for you!");
-} else {
-  console.log(userDrink + " sounds delicious!");
+//Third Question - Switch Statement - will repeat if wrong input
+var keepAskingQ3 = true;
+
+while (keepAskingQ3) {
+var userResponse3 = prompt('What was my first pet? A hamster, a bunny, a dog or a cat?');
+console.log('userResponse3: ' + userResponse3);
+
+var pets = userResponse3.toLowerCase();
+
+switch (pets) {
+  case 'hamster':
+    alert('Sorry, but no. A hamster was my second pet. My first pet was a bunny!');
+    keepAskingQ3 = false;
+    break;
+  case 'bunny':
+    alert('That\'s right! My first pet was a black bunny rabbit named Stupsi.');
+    correctQuestions += 1;
+    keepAskingQ3 = false;
+    break;
+  case 'dog':
+    alert('Oh, I wish! But no I had to wait many years until finally being able to get a dog. My first pet was a bunny!');
+    keepAskingQ3 = false;
+    break;
+  case 'cat':
+    alert('Sorry, but you got this one wrong. The cats are a very new addition to my life. My first pet was a bunny!');
+    keepAskingQ3 = false;
+    break;
+  default:
+    alert('Please pick out of the four choices: hamster, bunny, dog or cat!');
+}
 }
 
-//Question6
-var userTV = prompt("What's your favorite TV show?");
-console.log("So you like " + userTV + ", huh? Can't argue taste, can you?");
+//Fourth Question - takes numeric input and repeats if wrong answer
+var keepAskingQ4 = true;
 
-//Question7
+while (keepAskingQ4) {
+var userResponse4 = prompt('How many countries have I live in? Take a guess!');
+console.log('userResponse4 ' + userResponse4);
 
-var userPortland = prompt("How many years have you lived in Portland?");
-if (userPortland < 5) {
-  console.log("Only " + userPortland + " years? You are still a newbie!");
+if (parseInt(userResponse4) === 4) {
+  alert('That\'s correct! Well done!');
+  correctQuestions += 1;
+  keepAskingQ4 = false;
+} else if (userResponse4 < 4) {
+  alert('Sorry ' + userResponse4 + ' is not correct. I have lived in more countries than that! Guess again!');
 } else {
-  console.log("After " + userPortland + " years you are a true local. You should show me around!");
+  alert('Sorry ' + userResponse4 + ' is not correct. I have not lived in that many countries! Guess again!');
+}
 }
 
-alert("Thank you for answering my questions! I'll be over soon at your place with some " + userDrink + " to watch some " + userTV + " !");
+//Tally of questions
+
+alert("Congrats! You got " + correctQuestions + " questions right! Very well done!");
