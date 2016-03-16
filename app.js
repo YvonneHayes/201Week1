@@ -16,6 +16,7 @@ var keepAskingQ1 = true;
 while (keepAskingQ1){
 var userResponse1 = prompt('Am I a passionate cook who loves creating tasty treats for friends and family? Please answer Y or N.');
 console.log('userResponse1: ' + userResponse1);
+
 if (userResponse1.toLowerCase() === 'n' || userResponse1.toUpperCase() === 'NO') {
   alert('You are correct. Cooking is not one of my many fantastic talents. Don\'t worry - we\'ll order in!');
   correctQuestions += 1;
@@ -40,7 +41,7 @@ if (userResponse2.toLowerCase() === 'n' || userResponse2.toLowerCase() === 'no')
   alert('Sorry, you are very wrong on this one. I am pathologically punctual - and usually early.');
   keepAskingQ2 = false;
 } else if(userResponse2.toUpperCase() === 'Y' || userResponse2.toUpperCase() === 'YES') {
-  alert('You are right! It must be my germanic roots. I\'m usually at least 10 minutes early.');
+  alert('You are right! It must be the germanic side of me. I\'m usually at least 10 minutes early.');
   correctQuestions += 1;
   keepAskingQ2 = false;
 } else {
@@ -55,7 +56,7 @@ while (keepAskingQ3) {
 var userResponse3 = prompt('What was my first pet? A hamster, a bunny, a dog or a cat?');
 console.log('userResponse3: ' + userResponse3);
 
-var pets = userResponse3.toLowerCase();
+var pets = userResponse3.toLowerCase(); //making sure there are no problems wit capitals
 
 switch (pets) {
   case 'hamster':
@@ -98,6 +99,6 @@ if (parseInt(userResponse4) === 4) {
 }
 }
 
-//Tally of questions
+// //Tally of questions
 
 alert("Congrats! You got " + correctQuestions + " questions right! Very well done!");
