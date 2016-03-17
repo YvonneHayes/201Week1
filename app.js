@@ -100,24 +100,42 @@
 // }
 
 //Fifth Question - uses numeric input and gives exactly 4 tries to get it right
-var counter = 0;
+// var counter = 0;
+//
+// while (counter < 4) {
+//   var userResponse5 = prompt('How many (human!) languages do I speak? Take a guess!');
+//   console.log('userResponse5 ' + userResponse5);
+//
+//   if (parseInt(userResponse5) === 4 && !isNaN(userResponse5)) {
+//     alert('That\'s correct! I speak 4 languages more or less fluently.')
+//     correctAnswers += 1;
+//   } else if (userResponse5 < 4 && !isNaN(userResponse5)) {
+//     alert('Sorry ' + userResponse5 + ' is not correct. I speak more languages than that! Guess again!');
+//   } else if (userResponse5 > 4 && !isNaN(userResponse5)) {
+//     alert('Sorry ' + userResponse5 + ' is not correct. I do not speak that many languages! Guess again!');
+//   } else {
+//     alert('Are you sure you entered a number? Please try again!');
+//   }
+//
+//   counter += 1;
+// }
 
-while (counter < 4) {
-  var userResponse5 = prompt('How many (human!) languages do I speak? Take a guess!');
-  console.log('userResponse5 ' + userResponse5);
+// Sixth Question -  takes multiple possible correct answers that are stored in an array
+var counter2 = 0;
 
-  if (parseInt(userResponse5) === 4 && !isNaN(userResponse5)) {
-    alert('That\'s correct! I speak 4 languages more or less fluently.')
+while (counter2 < 3){
+  var userResponse6 = prompt('Guess a (human!) language (other than english) that I speak! You have 3 tries!');
+  console.log('userResponse6 ' + userResponse6);
+  var correctLanguages = ['german', 'french', 'spanish'];
+
+  if (userResponse6.toLowerCase() === correctLanguages[0] || correctLanguages[1] || correctLanguages[2]) {
+    alert('Wow! You have guessed correct! I\'m impressed.');
     correctAnswers += 1;
-  } else if (userResponse5 < 4 && !isNaN(userResponse5)) {
-    alert('Sorry ' + userResponse5 + ' is not correct. I speak more languages than that! Guess again!');
-  } else if (userResponse5 > 4 && !isNaN(userResponse5)) {
-    alert('Sorry ' + userResponse5 + ' is not correct. I do not speak that many languages! Guess again!');
   } else {
-    alert('Are you sure you entered a number? Please try again!');
+    alert('No, I unfortunately do not speak ' + userResponse6 + '.');
   }
 
-  counter += 1;
+counter2 += 1;
 }
 
 // // Correct Answers Tally
