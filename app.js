@@ -1,4 +1,4 @@
-//Wednesday Lab Exercise
+//Thursday Lab Exercise
 
 //Variable for Correct Answers Tally
 var correctAnswers = 0;
@@ -134,6 +134,7 @@ while (counter2 < 3){
       alert('Wow! You have guessed correct! I\'m impressed.');
       correctAnswers += 1;
       counter2 = 3;
+      break;
     } else if (i === correctLanguages.length -1){
       alert('No, I unfortunately do not speak ' + userResponse6 + '.');
     }
