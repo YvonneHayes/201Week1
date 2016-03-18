@@ -1,0 +1,29 @@
+body {
+  background: linear-gradient(#e0e0e1,#c4c5de);
+}
+
+h1 {
+  font-family: "Lobster";
+  text-shadow: 4px 4px 4px #aaa;
+  color: #621d3c;
+  text-align: center;
+  font-size: 300%;
+  background-color: #8ba286;
+}
+
+#bio {
+  text-align: center;
+}
+
+h2,h4 {
+  color: #621d3c;
+}
+
+p {
+  color: #203c22;
+  text-align: center;
+}
+
+ol,ul {
+  color: #356279;
+}
