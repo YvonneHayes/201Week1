@@ -11,18 +11,16 @@
 // alert('Welcome, ' + userName + ' Let\'s play a game. I\'m going to ask you some questions about me. Please click "ok" and then we\'ll get started!');
 //
 //
-var questions = [  ["question1", "Question One: Am I a passionate cook who loves creating tasty treats for friends and family? Please answer Y or N.", "response1","N","Y","You are correct. Cooking is not one of my many fantastic talents. Don\'t worry - we\'ll order in!","Sorry, domestic Goddess I am not. No worries, we\'ll order a delicious Pizza if you come to my house." ],
-["question2","Question Two:Am I a punctual person? Please answer Y or N.","response2","N","Y","You are right! It must be my germanic roots. I\'m usually at least 10 minutes early.","Sorry, you are very wrong on this one. I am pathologically punctual - and usually early."]
+var questions = [  ["question1", "Question One: Am I a passionate cook who loves creating tasty treats for friends and family? Please answer Y or N.", "response1","N","Y","You are correct. Cooking is not one of my many fantastic talents. Don\'t worry - we\'ll order in!","Sorry, domestic Goddess I am not. No worries, we\'ll order a delicious Pizza if you come to my house.","A"],
+["question2","Question Two:Am I a punctual person? Please answer Y or N.","response2","N","Y","You are right! It must be my germanic roots. I\'m usually at least 10 minutes early.","Sorry, you are very wrong on this one. I am pathologically punctual - and usually early.","A"]
 ];
 
-// [question id html (0), question to prompt (1), repsonse id html (2), correct answer to questions (3), incorrect answer to question (4), correct feedback to user (5), incorrect feedback to user (6)]
+// [question id html (0), question to prompt (1), repsonse id html (2), correct answer to questions (3), incorrect answer to question (4), correct feedback to user (5), incorrect feedback to user (6), question type** (7)]
+//question types defined: A - boolean (y/n, t/f, 0/1);  B -  , C while
 //function askQuestions (questionId, question, responseId, response){
 
 
 for (i=0; i<questions.length; i++  ){
-
-
-
 
     var printQuestion = document.getElementById(questions[i][0]);
     var askQuestion = questions[i][1];
@@ -31,23 +29,61 @@ for (i=0; i<questions.length; i++  ){
     var incorrectResponse = questions[i][4];
     var correctFeedback = questions[i][5];  //telling user they got it f
     var incorrectFeedback = questions[i][6];
+    var questionType = questions[i][7];
     var wrongSyntaxFeedback = "Please input Y or N.";
 
     printQuestion.textContent = questions[i][1];
-    askQuestion=prompt(askQuestion);
+
 
 console.log(printResponse);
 
-    if(askQuestion === correctResponse){
-      printResponse.textContent=correctFeedback;
-      } else if (askQuestion === incorrectResponse){
-        printResponse.textContent=incorrectFeedback;
-      }else {
-      printResponse.textContent =wrongSyntaxFeedback ;
+      switch(questionType){
+        case "A":
+          questionTypeA();
+          break;
+        // case "B":
+        //   questionTypeB();
+        //   break;
+        // case "C":
+        //   questionTypeC();
+        //       break;
+        default:
+            console.log("question type is undefined");
+        }
+
 
       }
 
-    }
+
+
+
+
+//function for question type A
+function questionTypeA (){
+  var keepAsking =true;
+
+  while (keepAsking){
+    var test = prompt(askQuestion);
+        if(test === correctResponse){
+          printResponse.textContent=correctFeedback;
+          keepAsking = false;
+          break;
+        } else if (test === incorrectResponse){
+            printResponse.textContent=incorrectFeedback;
+            keepAsking = false;
+            break;
+          }else {
+          alert(wrongSyntaxFeedback);
+          printResponse.textContent =wrongSyntaxFeedback;
+
+          }
+        }
+      }
+
+
+
+
+
 //}
 
 //askQuestions ("question1", "how are you?", "resposnse1", "great!");
