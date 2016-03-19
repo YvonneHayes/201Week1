@@ -60,6 +60,7 @@ while (keepAsking){
       }
 
 
+
 //for questions with incorrect response of yes
 function questionFunctionA (){
     return "Y";
@@ -110,13 +111,9 @@ function incorrectFeedbackQuestion3() {
 
 
 
-
-//correctAnswers += 1;
-
-
-
-
 //Fourth Question - uses numeric input and repeats until correct answer
+
+
 var keepAskingQ4 = true;
 
 while (keepAskingQ4) {
@@ -134,6 +131,7 @@ if (parseInt(userResponse4) === 4) {
   alert('Sorry ' + userResponse4 + ' is not correct. I have not lived in that many countries! Guess again!');
 }
 }
+
 
 //Fifth Question - uses numeric input and gives exactly 4 tries to get it right
 var counter = 0;
